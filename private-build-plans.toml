@@ -4,7 +4,8 @@ design = [
             "v-a-doublestorey", "v-f-straight", "v-g-opendoublestorey", "v-i-hooky",
             "v-l-italic", "v-r-serifed", "v-y-straight-turn", "v-zero-dotted", "v-one-base",
             "v-three-flattop", "v-four-semi-open", "v-six-open-contour", "v-seven-serifed",
-            "v-nine-open-contour", "v-asterisk-low", "v-at-fourfold", "sp-fixed"
+            "v-nine-open-contour", "v-asterisk-low", "v-numbersign-slanted", "v-at-fourfold",
+            "sp-fixed"
          ] # Customize styles
 # upright = ["upright-styles"]            # Uncomment this line to set styles for upright only
 # italic = ["italic-styles"]              # Uncomment this line to set styles for italic only
