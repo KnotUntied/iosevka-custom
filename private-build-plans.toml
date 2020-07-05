@@ -1,8 +1,8 @@
 [buildPlans.iosevka-custom]               # <iosevka-custom> is your plan name
 family = "Iosevka Custom"                 # Font menu family name
 design = [
-            "v-a-doublestorey", "v-f-straight", "v-g-opendoublestorey", "v-i-hooky",
-            "v-l-italic", "v-r-serifed", "v-y-straight-turn", "v-zero-dotted", "v-one-base",
+            "v-a-doublestorey", "v-f-straight", "v-g-opendoublestorey", "v-i-hooky", "v-k-straight",
+            "v-l-italic", "v-r-serifed", "v-y-straight-turn", "v-zero-long-dotted", "v-one-base",
             "v-three-flattop", "v-four-semi-open", "v-six-open-contour", "v-seven-serifed",
             "v-nine-open-contour", "v-asterisk-low", "v-numbersign-slanted", "sp-fixed"
          ] # Customize styles
