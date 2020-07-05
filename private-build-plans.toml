@@ -19,10 +19,30 @@ hintParams = ["-a", "sss"]                # Optional custom parameters for ttfau
 #             and "shape" properly only supports number between 100 and 900 (inclusive).
 #             If you decide to use custom weights you have to define all the weights you
 #             plan to use otherwise they will not be built.
+[buildPlans.iosevka-custom.weights.extralight]
+shape = 200
+menu  = 200
+css   = 200
+
+[buildPlans.iosevka-custom.weights.light]
+shape = 300
+menu  = 300
+css   = 300
+
 [buildPlans.iosevka-custom.weights.regular]
 shape = 400  # Weight for glyph shapes.
 menu  = 400  # Weight for the font's names.
 css   = 400  # Weight for webfont CSS.
+
+[buildPlans.iosevka-custom.weights.medium]
+shape = 500
+menu  = 500
+css   = 500
+
+[buildPlans.iosevka-custom.weights.semibold]
+shape = 600
+menu  = 600
+css   = 600
 
 # [buildPlans.iosevka-custom.weights.book]
 # shape = 450
@@ -34,6 +54,11 @@ shape = 700
 menu  = 700
 css   = 700
 
+[buildPlans.iosevka-custom.weights.heavy]
+shape = 900
+menu  = 900
+css   = 900
+
 # End weight section
 ###################################################################################################
 
@@ -44,7 +69,7 @@ css   = 700
 
 [buildPlans.iosevka-custom.slants]
 upright = "normal"
-italic = "italic"
+# italic = "italic"
 # oblique = "oblique"
 
 # End slant section
@@ -72,7 +97,7 @@ italic = "italic"
 # css   = "expanded"
 
 [buildPlans.iosevka-custom.widths.normal]
-shape = 600        # Unit Width, measured in 1/1000 em.
+shape = 618        # Unit Width, measured in 1/1000 em.
 menu  = 5          # Width grade for the font's names.
 css   = "normal"   # "font-stretch' property of webfont CSS.
 
