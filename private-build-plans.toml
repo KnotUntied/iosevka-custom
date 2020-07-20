@@ -2,7 +2,7 @@
 family = "Iosevka Custom"                 # Font menu family name
 design = [
             "v-a-doublestorey", "v-f-straight", "v-g-opendoublestorey", "v-i-hooky", "v-k-straight",
-            "v-l-italic", "v-r-serifed", "v-y-straight-turn", "v-capital-d-more-rounded",
+            "v-l-italic", "v-r-serifed", "v-u-tailed", "v-y-straight-turn", "v-capital-d-more-rounded",
             "v-zero-long-dotted", "v-one-base", "v-three-flattop", "v-four-semi-open",
             "v-six-open-contour", "v-seven-serifed", "v-nine-open-contour", "v-asterisk-low",
             "v-numbersign-slanted", "sp-fixed"
