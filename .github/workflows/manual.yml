@@ -31,4 +31,9 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send greeting
       # run: echo "Hello ${{ github.event.inputs.version }}"
-      run: cd
+      run: |
+        cd
+        dir
+    # - name: Install Python dependencies
+    #   run: |
+    #     pip install afdko
