@@ -28,12 +28,43 @@ jobs:
     steps:
     # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
     - uses: actions/checkout@v2
+    - name: Setup Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8.3'
+    - name: Setup Node
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
     # Runs a single command using the runners shell
-    - name: Send greeting
-      # run: echo "Hello ${{ github.event.inputs.version }}"
+    - name: Debug current location
       run: |
         cd
         dir
+        echo "iosevka-custom-${{ github.event.inputs.version }}"
+    # TODO: Cache ttfautohint
+    # - name: Install ttfautohint
+    #   run: |
+        
+    # TODO: Cache otfcc
+    # - name: Install otfcc
+    #   run: |
+        
+    # - name: Download Iosevka source
+      # run: echo "Hello ${{ github.event.inputs.version }}"
     # - name: Install Python dependencies
     #   run: |
     #     pip install afdko
+    # - name: Install Node dependencies
+    #   run: |
+    #     npm install
+    # - name: Execute build
+    #   run: npm run build -- ttf::iosevka-custom
+    # - name: Upload artifact
+    #   uses: actions/upload-artifact@v2
+    #   with:
+    #     name: iosevka-custom
+    #     path: |
+    #       path/output/bin/
+    #       path/output/test-results
+    #       !path/**/*.tmp
