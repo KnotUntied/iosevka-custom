@@ -41,23 +41,20 @@ jobs:
     # TODO: Cache ttfautohint
     - name: Install ttfautohint
       run: |
-        curl -O ttfautohint-1.8.3-win32.7z https://phoenixnap.dl.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3-win32.7z
+        curl -LO https://phoenixnap.dl.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3-win32.7z
         7z e ttfautohint-1.8.3-win32.7z ttfautohint.exe
         echo "::add-path::./ttfautohint.exe"
-      shell: powershell
     # TODO: Cache otfcc
     - name: Install otfcc
       run: |
-        curl -O https://github.com/caryll/otfcc/releases/download/v0.10.4/otfcc-win64-0.10.4.zip
+        curl -LO https://github.com/caryll/otfcc/releases/download/v0.10.4/otfcc-win64-0.10.4.zip
         7z e otfcc-win64-0.10.4.zip
         echo "::add-path::./otfccbuild.exe"
         echo "::add-path::./otfccdump.exe"
-      shell: powershell
     - name: Download Iosevka source
       run: |
-        curl -O "https://github.com/be5invis/Iosevka/archive/v${{ github.event.inputs.version }}.zip"
+        curl -LO "https://github.com/be5invis/Iosevka/archive/v${{ github.event.inputs.version }}.zip"
       # 7z e ttfautohint-1.8.3-win32.7z ttfautohint.exe
-      shell: powershell
     - name: Debug current location again
       run: |
         cd
