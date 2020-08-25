@@ -56,6 +56,7 @@ jobs:
         echo "::add-path::./otfccdump.exe"
     - name: Download Iosevka source
       run: |
+        cd $GITHUB_WORKSPACE
         curl -LO "https://github.com/be5invis/Iosevka/archive/v${{ github.event.inputs.version }}.zip"
         7z e "Iosevka-${{ github.event.inputs.version }}.zip"
         cd "Iosevka-${{ github.event.inputs.version }}"
