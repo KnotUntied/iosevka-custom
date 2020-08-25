@@ -57,6 +57,7 @@ jobs:
     - name: Download Iosevka source
       run: |
         curl -LO "https://github.com/be5invis/Iosevka/archive/v${{ github.event.inputs.version }}.zip"
+        dir
         7z e "v${{ github.event.inputs.version }}.zip"
         cd "Iosevka-${{ github.event.inputs.version }}"
     - name: Debug current location again
