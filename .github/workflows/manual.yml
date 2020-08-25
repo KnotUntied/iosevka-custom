@@ -38,6 +38,9 @@ jobs:
       uses: actions/setup-node@v1
       with:
         node-version: '14'
+    - name: Install Python dependencies
+      run: |
+        pip install afdko
     # TODO: Cache ttfautohint
     - name: Install ttfautohint
       run: |
@@ -54,14 +57,13 @@ jobs:
     - name: Download Iosevka source
       run: |
         curl -LO "https://github.com/be5invis/Iosevka/archive/v${{ github.event.inputs.version }}.zip"
-      # 7z e ttfautohint-1.8.3-win32.7z ttfautohint.exe
+        7z e "Iosevka-${{ github.event.inputs.version }}.zip"
+        cd "Iosevka-${{ github.event.inputs.version }}"
+        dir
     - name: Debug current location again
       run: |
         cd
         dir
-    - name: Install Python dependencies
-      run: |
-        pip install afdko
     # - name: Install Node dependencies
     #   run: |
     #     npm install
