@@ -52,7 +52,6 @@ jobs:
         curl -LO https://phoenixnap.dl.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3-win32.7z
         7z e ttfautohint-1.8.3-win32.7z ttfautohint.exe
         copy ttfautohint.exe "Iosevka-${{ github.event.inputs.version }}\ttfautohint.exe"
-      # echo "::set-env name=ttfautohint::ttfautohint.exe"
     # TODO: Cache otfcc
     - name: Install otfcc
       run: |
@@ -60,23 +59,16 @@ jobs:
         7z e otfcc-win64-0.10.4.zip
         copy otfccbuild.exe "Iosevka-${{ github.event.inputs.version }}\otfccbuild.exe"
         copy otfccdump.exe "Iosevka-${{ github.event.inputs.version }}\otfccdump.exe"
-      # echo "::set-env name=ttfautohint::otfccbuild.exe"
-      # echo "::set-env name=ttfautohint::otfccdump.exe"
-    # - name: Debug current location again
-    #   run: |
-    #     cd
-    #     dir
     - name: Install Node dependencies
       run: |
         cd "Iosevka-${{ github.event.inputs.version }}"
         npm install
-    # - name: Execute build
-    #   run: npm run build -- ttf::iosevka-custom
-    # - name: Upload artifact
-    #   uses: actions/upload-artifact@v2
-    #   with:
-    #     name: iosevka-custom-${{ github.event.inputs.version }}
-    #     path: |
-    #       path/output/bin/
-    #       path/output/test-results
-    #       !path/**/*.tmp
+    - name: Execute build
+      run: |
+        cd "Iosevka-${{ github.event.inputs.version }}"
+        npm run build -- ttf::iosevka-custom
+    - name: Upload artifact
+      uses: actions/upload-artifact@v2
+      with:
+        name: iosevka-custom-${{ github.event.inputs.version }}
+        path: Iosevka-${{ github.event.inputs.version }}/.build/ttf/iosevka-custom/*.ttf
