@@ -46,14 +46,14 @@ jobs:
       run: |
         curl -LO https://phoenixnap.dl.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3-win32.7z
         7z e ttfautohint-1.8.3-win32.7z ttfautohint.exe
-        echo "::add-path::./ttfautohint.exe"
+        echo "::set-env name=ttfautohint::ttfautohint.exe"
     # TODO: Cache otfcc
     - name: Install otfcc
       run: |
         curl -LO https://github.com/caryll/otfcc/releases/download/v0.10.4/otfcc-win64-0.10.4.zip
         7z e otfcc-win64-0.10.4.zip
-        echo "::add-path::./otfccbuild.exe"
-        echo "::add-path::./otfccdump.exe"
+        echo "::set-env name=ttfautohint::otfccbuild.exe"
+        echo "::set-env name=ttfautohint::otfccdump.exe"
     - name: Download Iosevka source
       run: |
         curl -LO "https://github.com/be5invis/Iosevka/archive/v${{ github.event.inputs.version }}.zip"
