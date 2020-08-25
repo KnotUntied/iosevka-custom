@@ -46,7 +46,9 @@ jobs:
     # TODO: Cache ttfautohint
     - name: Install ttfautohint
       run: |
-        curl https://downloads.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3-win32.7z
+        curl https://phoenixnap.dl.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3-win32.7z
+        cd
+        dir
         7z e ttfautohint-1.8.3-win32.7z ttfautohint.exe
         echo "::add-path::./ttfautohint.exe"
     # TODO: Cache otfcc
