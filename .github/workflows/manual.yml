@@ -23,6 +23,8 @@ jobs:
     name: Build font
     # The type of runner that the job will run on
     runs-on: windows-latest
+    # env:
+      # otfcc:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -31,7 +33,7 @@ jobs:
     - name: Setup Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.8.3'
+        python-version: '3.8'
     - name: Setup Node
       uses: actions/setup-node@v1
       with:
@@ -41,20 +43,30 @@ jobs:
       run: |
         cd
         dir
-        echo "iosevka-custom-${{ github.event.inputs.version }}"
     # TODO: Cache ttfautohint
-    # - name: Install ttfautohint
-    #   run: |
-        
+    - name: Install ttfautohint
+      run: |
+        curl https://downloads.sourceforge.net/project/freetype/ttfautohint/1.8.3/ttfautohint-1.8.3-win32.7z
+        7z e ttfautohint-1.8.3-win32.7z ttfautohint.exe
+        echo "::add-path::./ttfautohint.exe"
     # TODO: Cache otfcc
-    # - name: Install otfcc
-    #   run: |
-        
-    # - name: Download Iosevka source
-      # run: echo "Hello ${{ github.event.inputs.version }}"
-    # - name: Install Python dependencies
-    #   run: |
-    #     pip install afdko
+    - name: Install otfcc
+      run: |
+        curl https://github.com/caryll/otfcc/releases/download/v0.10.4/otfcc-win64-0.10.4.zip
+        7z e otfcc-win64-0.10.4.zip
+        echo "::add-path::./otfccbuild.exe"
+        echo "::add-path::./otfccdump.exe"
+    - name: Download Iosevka source
+      run: |
+        curl "https://github.com/be5invis/Iosevka/archive/v${{ github.event.inputs.version }}.zip"
+      # 7z e ttfautohint-1.8.3-win32.7z ttfautohint.exe
+    - name: Debug current location again
+      run: |
+        cd
+        dir
+    - name: Install Python dependencies
+      run: |
+        pip install afdko
     # - name: Install Node dependencies
     #   run: |
     #     npm install
@@ -63,7 +75,7 @@ jobs:
     # - name: Upload artifact
     #   uses: actions/upload-artifact@v2
     #   with:
-    #     name: iosevka-custom
+    #     name: iosevka-custom-${{ github.event.inputs.version }}
     #     path: |
     #       path/output/bin/
     #       path/output/test-results
