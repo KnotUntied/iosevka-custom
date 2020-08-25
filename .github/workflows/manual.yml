@@ -66,6 +66,7 @@ jobs:
     #     dir
     - name: Install Node dependencies
       run: |
+        cd "Iosevka-${{ github.event.inputs.version }}"
         npm install
     # - name: Execute build
     #   run: npm run build -- ttf::iosevka-custom
