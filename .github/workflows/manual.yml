@@ -60,13 +60,13 @@ jobs:
         7z x "v${{ github.event.inputs.version }}.zip"
         copy private-build-plans.toml "Iosevka-${{ github.event.inputs.version }}\private-build-plans.toml"
         cd "Iosevka-${{ github.event.inputs.version }}"
-    - name: Debug current location again
-      run: |
-        cd
-        dir
-    # - name: Install Node dependencies
+    # - name: Debug current location again
     #   run: |
-    #     npm install
+    #     cd
+    #     dir
+    - name: Install Node dependencies
+      run: |
+        npm install
     # - name: Execute build
     #   run: npm run build -- ttf::iosevka-custom
     # - name: Upload artifact
