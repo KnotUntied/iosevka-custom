@@ -1,16 +1,60 @@
-[buildPlans.iosevka-custom]               # <iosevka-custom> is your plan name
-family = "Iosevka Custom"                 # Font menu family name
-design = [
-            "v-a-doublestorey-tailed", "v-d-tailed", "v-f-straight-tailed", "v-g-opendoublestorey", "v-i-serifed", "v-k-straight",
-            "v-l-italic", "v-u-tailed", "v-y-straight-turn", "v-capital-d-more-rounded",
-            "v-zero-long-dotted", "v-three-flattop", "v-four-semi-open",
-            "v-six-open-contour", "v-seven-serifed", "v-nine-open-contour", "v-asterisk-low",
-            "v-paren-large-contour", "v-numbersign-slanted", "v-ampersand-upper-open", "v-at-short", "sp-fixed"
-         ] # Customize styles
-# upright = ["upright-styles"]            # Uncomment this line to set styles for upright only
-# italic = ["italic-styles"]              # Uncomment this line to set styles for italic only
-# oblique = ["oblique-styles"]            # Uncomment this line to set styles for oblique only
-hintParams = ["-a", "sss"]                # Optional custom parameters for ttfautohint
+[buildPlans.iosevka-custom]      # <iosevka-custom> is your plan name
+family = "Iosevka Custom"        # Font menu family name
+spacing = "fixed"               # Optional; Values: `normal`, `term`, `fontconfig-mono`, or `fixed`
+serifs = "sans"                  # Optional; Values: `sans` or `slab`
+no-cv-ss = true
+no-ligation = true
+
+###################################################################################################
+# Configure variants
+
+# Optional; Whether to inherit a `ss##` variant
+# [buildPlans.iosevka-custom.variants]
+# inherits = "ss01"
+
+# Optional; Configure single character's variant
+[buildPlans.iosevka-custom.variants.design]
+capital-d = 'more-rounded'
+a = 'doublestorey'
+f = 'serifless'
+g = 'opendoublestorey'
+i = 'serifed'
+k = 'straight'
+l = 'serifed-tailed'
+y = 'straight-turn'
+four = 'semi-open'
+six = 'open-contour'
+nine = 'open-contour'
+asterisk = 'low'
+paren = 'large-contour'
+number-sign = 'slanted'
+at = 'short'
+percent = 'rings-connected'
+
+# Optional; Configure single character's variant for Upright and Oblique; Overrides [design]
+# [buildPlans.iosevka-custom.variants.upright]
+# i = 'zshaped'
+# l = 'zshaped'
+
+# Optional; Configure single character's variant for Italic only; Overrides [design]
+# [buildPlans.iosevka-custom.variants.italic]
+# i = 'serifed-tailed'
+# l = 'serifed-tailed'
+
+# End variant section
+###################################################################################################
+
+###################################################################################################
+# Configure ligations
+
+# [buildPlans.iosevka-custom.ligations]
+# inherits = "default-calt"   # Optional; inherits an existing ligation set
+# disables = []               # Optional; disable specific ligation groups, overrides inherited ligation set
+# enables  = []               # Optional; enable specific ligation groups, overrides inherited ligation set
+
+# End ligation section
+###################################################################################################
+
 
 ###################################################################################################
 # Override default building weights
@@ -20,6 +64,11 @@ hintParams = ["-a", "sss"]                # Optional custom parameters for ttfau
 #             and "shape" properly only supports number between 100 and 900 (inclusive).
 #             If you decide to use custom weights you have to define all the weights you
 #             plan to use otherwise they will not be built.
+[buildPlans.iosevka-custom.weights.thin]
+shape = 100
+menu  = 100
+css   = 100
+
 [buildPlans.iosevka-custom.weights.extralight]
 shape = 200
 menu  = 200
@@ -35,6 +84,11 @@ shape = 400  # Weight for glyph shapes.
 menu  = 400  # Weight for the font's names.
 css   = 400  # Weight for webfont CSS.
 
+# [buildPlans.iosevka-custom.weights.book]
+# shape = 450
+# menu  = 450  # Use 450 here to name the font's weight "Book"
+# css   = 450
+
 [buildPlans.iosevka-custom.weights.medium]
 shape = 500
 menu  = 500
@@ -45,15 +99,15 @@ shape = 600
 menu  = 600
 css   = 600
 
-# [buildPlans.iosevka-custom.weights.book]
-# shape = 450
-# menu  = 450  # Use 450 here to name the font's weight "Book"
-# css   = 450
-
 [buildPlans.iosevka-custom.weights.bold]
 shape = 700
 menu  = 700
 css   = 700
+
+[buildPlans.iosevka-custom.weights.extrabold]
+shape = 800
+menu  = 800
+css   = 800
 
 [buildPlans.iosevka-custom.weights.heavy]
 shape = 900
@@ -123,10 +177,10 @@ css   = "normal"   # "font-stretch' property of webfont CSS.
 # following section to build PUA characters that are generated from the OpenType ligatures.
 # Remove this section when compatibility ligatures are not needed.
 
-# [[buildPlans.iosevka-custom.compatibility-ligatures]]
-# unicode = 57600 # 0xE100
-# featureTag = 'calt'
-# sequence = '<*>'
+[[buildPlans.iosevka-custom.compatibility-ligatures]]
+unicode = 57600 # 0xE100
+featureTag = 'calt'
+sequence = '<*>'
 
 # End compatibility ligatures section
 ###################################################################################################
