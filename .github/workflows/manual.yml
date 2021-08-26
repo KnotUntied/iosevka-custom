@@ -25,7 +25,9 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: sudo apt -y install ttfautohint
+      run: |
+        sudo apt update
+        sudo apt -y install ttfautohint libttfautohint-dev
 
     - name: Download Iosevka source
       uses: actions/checkout@v2
