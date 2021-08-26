@@ -1,7 +1,5 @@
 name: Manual build
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
     inputs:
@@ -27,7 +25,7 @@ jobs:
         node-version: '16'
 
     - name: Install dependencies
-      run: sudo apt install ttfautohint libttfautohint-dev
+      run: sudo apt-get install ttfautohint libttfautohint-dev
 
     - name: Download Iosevka source
       uses: actions/checkout@v2
